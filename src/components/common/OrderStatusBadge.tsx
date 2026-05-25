@@ -1,12 +1,28 @@
-import { memo } from 'react';
-import type { OrderStatus } from '../../types';
+import { memo } from "react";
+import type { OrderStatus } from "../../types";
 
 const STATUS_CONFIG: Record<OrderStatus, { bg: string; text: string; border: string }> = {
-  CREATED: { bg: 'var(--color-primary-light)', text: 'var(--color-primary-dark)', border: 'var(--color-primary)' },
-  PROCESSING: { bg: 'var(--color-primary-light)', text: 'var(--color-primary-dark)', border: 'var(--color-primary)' },
-  FINISHED: { bg: 'var(--color-primary-light)', text: 'var(--color-primary-dark)', border: 'var(--color-primary)' },
-  COMPLETED: { bg: 'var(--color-success-light)', text: 'var(--color-success)', border: 'var(--color-success)' },
-  FAILED: { bg: 'var(--color-danger-light)', text: 'var(--color-danger)', border: 'var(--color-danger)' },
+  CREATED: {
+    bg: "rgba(var(--color-primary-rgb), 0.12)",
+    text: "var(--color-primary)",
+    border: "rgba(var(--color-primary-rgb), 0.3)",
+  },
+  PROCESSING: {
+    bg: "rgba(var(--color-primary-rgb), 0.12)",
+    text: "var(--color-primary)",
+    border: "rgba(var(--color-primary-rgb), 0.3)",
+  },
+  FINISHED: {
+    bg: "rgba(var(--color-primary-rgb), 0.12)",
+    text: "var(--color-primary)",
+    border: "rgba(var(--color-primary-rgb), 0.3)",
+  },
+  COMPLETED: {
+    bg: "rgba(var(--color-success-rgb), 0.12)",
+    text: "var(--color-success)",
+    border: "rgba(var(--color-success-rgb), 0.3)",
+  },
+  FAILED: { bg: "rgba(239, 68, 68, 0.12)", text: "var(--color-danger)", border: "rgba(239, 68, 68, 0.3)" },
 };
 
 interface OrderStatusBadgeProps {
@@ -29,5 +45,5 @@ const OrderStatusBadge = memo(({ status }: OrderStatusBadgeProps) => {
   );
 });
 
-OrderStatusBadge.displayName = 'OrderStatusBadge';
+OrderStatusBadge.displayName = "OrderStatusBadge";
 export default OrderStatusBadge;
