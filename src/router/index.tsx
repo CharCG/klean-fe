@@ -18,6 +18,7 @@ const EditProfile = lazy(() => import('../pages/customer/EditProfile'));
 const MerchantDetail = lazy(() => import('../pages/customer/MerchantDetail'));
 const Checkout = lazy(() => import('../pages/customer/Checkout'));
 const PaymentPage = lazy(() => import('../pages/customer/Payment'));
+const PaymentFinish = lazy(() => import('../pages/customer/PaymentFinish'));
 const WriteReview = lazy(() => import('../pages/customer/WriteReview'));
 const RegisterMerchant = lazy(() => import('../pages/customer/RegisterMerchant'));
 
@@ -85,13 +86,13 @@ function ProtectedRoute({ allowedRoles }: { allowedRoles?: string[] }) {
 
   if (isLoading) return <PageSkeleton />;
   if (!user || !mode) return <Navigate to="/login" replace />;
-  
+
   if (allowedRoles && !allowedRoles.includes(user.role)) {
     if (user.role === 'MERCHANT' && allowedRoles.includes('CUSTOMER')) {
     } else {
-       if (user.role === 'CUSTOMER') return <Navigate to="/" replace />;
-       if (user.role === 'MERCHANT') return <Navigate to="/merchant" replace />;
-       if (user.role === 'ADMIN') return <Navigate to="/admin" replace />;
+      if (user.role === 'CUSTOMER') return <Navigate to="/" replace />;
+      if (user.role === 'MERCHANT') return <Navigate to="/merchant" replace />;
+      if (user.role === 'ADMIN') return <Navigate to="/admin" replace />;
     }
   }
 
@@ -163,6 +164,7 @@ export const router = createBrowserRouter([
           { path: '/merchants/:id', element: <MerchantDetail /> },
           { path: '/checkout', element: <Checkout /> },
           { path: '/payment/:orderId', element: <PaymentPage /> },
+          { path: '/payment/finish', element: <PaymentFinish /> },
           { path: '/review/:orderId', element: <WriteReview /> },
           { path: '/register-merchant', element: <RegisterMerchant /> },
           { path: '/edit-profile', element: <EditProfile /> },

@@ -90,23 +90,37 @@ export default function CustomerOrderDetail() {
   const handlePay = () => {
     if (!snapToken || !window.snap) return;
     setIsPaying(true);
+    const historyLengthBefore = window.history.length;
+
+    const clearSnapHistory = (callback: () => void) => {
+      const snapEntries = window.history.length - historyLengthBefore;
+      if (snapEntries > 0) {
+        window.history.go(-snapEntries);
+        setTimeout(callback, 100);
+      } else {
+        callback();
+      }
+    };
+
     window.snap.pay(snapToken, {
       onSuccess: async () => {
         try {
           await api.verifyPayment(id!);
-          await queryClient.invalidateQueries({ queryKey: ["order", id] });
-          await queryClient.invalidateQueries({ queryKey: ["customerOrders"] });
-          showToast("Payment successful! 🎉", "success");
+          queryClient.invalidateQueries({ queryKey: ["order", id] });
+          queryClient.invalidateQueries({ queryKey: ["customerOrders"] });
+          showToast("Payment successful!", "success");
         } finally {
           setIsPaying(false);
+          clearSnapHistory(() => navigate(`/orders/${id}`, { replace: true }));
         }
       },
       onPending: async () => {
         try {
           await api.verifyPayment(id!);
-          await queryClient.invalidateQueries({ queryKey: ["order", id] });
+          queryClient.invalidateQueries({ queryKey: ["order", id] });
         } finally {
           setIsPaying(false);
+          clearSnapHistory(() => navigate(`/orders/${id}`, { replace: true }));
         }
       },
       onError: () => {
@@ -128,7 +142,7 @@ export default function CustomerOrderDetail() {
 
   return (
     <div className="flex flex-col h-full overflow-y-auto" style={{ backgroundColor: "var(--color-bg)" }}>
-      <TopBar title="Order Details" showBack />
+      <TopBar title="Order Details" showBack onBack={() => navigate('/orders', { replace: true })} />
       <div className="p-6 space-y-5">
         {/* Payment Success Banner */}
         {paymentStatus === "PAID" && (
