@@ -16,7 +16,7 @@ export default function AdminReviews() {
 
   return (
     <div className="flex flex-col h-full pb-24 overflow-y-auto" style={{ backgroundColor: 'var(--color-bg)' }}>
-      <TopBar title="Manage Reviews" />
+      <TopBar title="Reviews" />
       <div className="p-6 flex flex-col gap-4">
         {isLoading ? <><SkeletonCard /><SkeletonCard /></> : (reviews || []).length === 0 ? <EmptyState title="No reviews found" /> : (reviews || []).map((r) => (
           <div key={r.id} className="rounded-xl p-4" style={{ backgroundColor: 'var(--color-card)', border: '1px solid var(--color-stroke)' }}>
