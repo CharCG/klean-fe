@@ -1,6 +1,5 @@
 import { useState, type FormEvent } from 'react';
 import { Link } from 'react-router-dom';
-import { Package } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import { useToast } from '../../context/ToastContext';
 import Button from '../../components/common/Button';
@@ -34,9 +33,7 @@ export default function Login() {
   return (
     <div className="flex flex-col justify-center h-full px-6 bg-card">
       <div className="mb-8 text-center">
-        <div className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 bg-primary shadow-[0_4px_14px_0_rgba(var(--color-primary-rgb),0.39)]">
-          <Package className="text-white" size={32} />
-        </div>
+        <img src="/logo.svg" alt="Klean" className="h-16 mx-auto mb-4" />
         <h1 className="text-2xl font-bold text-text tracking-tight">
           Welcome to Klean
         </h1>

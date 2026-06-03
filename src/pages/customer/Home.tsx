@@ -50,7 +50,7 @@ export default function CustomerHome() {
         ) : (
           <div
             onClick={() => navigate('/explore')}
-            className="bg-card rounded-2xl p-5 mb-6 shadow-sm border border-stroke flex items-center justify-between cursor-pointer active:scale-[0.98] transition-transform"
+            className="bg-card rounded-2xl p-5 mb-6 border border-stroke flex items-center justify-between cursor-pointer active:scale-[0.98] transition-transform"
           >
             <div>
               <h3 className="font-semibold text-text mb-1">

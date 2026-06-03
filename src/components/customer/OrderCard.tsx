@@ -40,7 +40,7 @@ const OrderCard = memo(({ order, onClick }: OrderCardProps) => {
   return (
     <div
       onClick={onClick}
-      className="bg-card rounded-xl p-4 shadow-sm border border-stroke relative overflow-hidden cursor-pointer active:bg-bg transition-colors"
+      className="bg-card rounded-xl p-4 border border-stroke relative overflow-hidden cursor-pointer active:bg-bg transition-colors"
     >
       <div
         className="absolute left-0 top-0 bottom-0 w-1"
@@ -76,7 +76,7 @@ const OrderCard = memo(({ order, onClick }: OrderCardProps) => {
         </span>
         {['CREATED', 'PROCESSING', 'FINISHED'].includes(order.status) && (
           <span className="text-xs font-semibold text-primary">
-            ETA: {order.estimationTime}
+            ETA: {order.estimationTime || 'Pending'}
           </span>
         )}
       </div>

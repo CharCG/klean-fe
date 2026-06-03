@@ -65,7 +65,7 @@ export default function MerchantOrderDetail() {
         <div className="rounded-xl p-5 space-y-2 text-sm" style={{ backgroundColor: 'var(--color-card)', border: '1px solid var(--color-stroke)' }}>
           <h3 className="font-semibold text-sm mb-3 pb-2" style={{ color: 'var(--color-text)', borderBottom: '1px solid var(--color-stroke)' }}>Details</h3>
           <p><span style={{ color: 'var(--color-text-secondary)' }}>Fulfillment:</span> <span className="font-medium">{order.fulfillment}</span></p>
-          <p><span style={{ color: 'var(--color-text-secondary)' }}>ETA:</span> <span className="font-medium">{order.estimationTime}</span></p>
+          <p><span style={{ color: 'var(--color-text-secondary)' }}>ETA:</span> <span className="font-medium" style={{ color: order.status === 'COMPLETED' ? 'var(--color-success)' : 'var(--color-text)' }}>{order.status === 'COMPLETED' ? 'Done' : (order.estimationTime || 'Pending')}</span></p>
           <p><span style={{ color: 'var(--color-text-secondary)' }}>Phone:</span> <span className="font-medium">{order.customer?.phone}</span></p>
           {order.notes && <p><span style={{ color: 'var(--color-text-secondary)' }}>Notes:</span> <span className="font-medium">{order.notes}</span></p>}
         </div>

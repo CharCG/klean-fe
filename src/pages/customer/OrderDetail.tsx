@@ -155,7 +155,7 @@ export default function CustomerOrderDetail() {
           >
             <div
               className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
-              style={{ backgroundColor: "var(--color-success)", boxShadow: "0 4px 12px rgba(34,197,94,0.3)" }}
+              style={{ backgroundColor: "var(--color-success)" }}
             >
               <CheckCircle2 size={20} color="var(--color-card)" />
             </div>
@@ -223,7 +223,6 @@ export default function CustomerOrderDetail() {
             className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl text-sm font-semibold transition-all cursor-pointer disabled:opacity-70 text-white"
             style={{
               backgroundColor: "var(--color-primary)",
-              boxShadow: isPaying ? "none" : "0 4px 12px rgba(var(--color-primary-rgb),0.35)",
               border: "none",
             }}
           >
@@ -297,8 +296,8 @@ export default function CustomerOrderDetail() {
           </p>
           <p>
             <span style={{ color: "var(--color-text-secondary)" }}>ETA:</span>{" "}
-            <span className="font-medium" style={{ color: "var(--color-text)" }}>
-              {order.estimationTime}
+            <span className="font-medium" style={{ color: order.status === "COMPLETED" ? "var(--color-success)" : "var(--color-text)" }}>
+              {order.status === "COMPLETED" ? "Done" : (order.estimationTime || "Pending")}
             </span>
           </p>
           {order.notes && (
@@ -332,7 +331,7 @@ export default function CustomerOrderDetail() {
               variant="primary"
               fullWidth
               className="!bg-warning !border-warning"
-              style={{ backgroundColor: "var(--color-warning)", boxShadow: "0 4px 12px rgba(245,158,11,0.35)" }}
+              style={{ backgroundColor: "var(--color-warning)" }}
             >
               <CheckCircle2 size={16} className="mr-2" />
               Order Received

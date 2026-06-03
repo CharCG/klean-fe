@@ -16,7 +16,7 @@ export default function StepTimeline({ currentStatus, steps }: StepTimelineProps
 
   return (
     <div
-      className="rounded-xl p-5 shadow-sm"
+      className="rounded-xl p-5"
       style={{
         backgroundColor: "var(--color-card)",
         border: "1px solid var(--color-stroke)",
@@ -41,7 +41,6 @@ export default function StepTimeline({ currentStatus, steps }: StepTimelineProps
                   style={{
                     backgroundColor: isCompleted ? "var(--color-primary)" : "var(--color-stroke)",
                     color: isCompleted ? undefined : "var(--color-text-tertiary)",
-                    boxShadow: isCompleted ? "0 4px 6px -1px rgba(var(--color-primary-rgb),0.3)" : "none",
                   }}
                 >
                   {step.icon}

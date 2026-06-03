@@ -165,6 +165,8 @@ export const router = createBrowserRouter([
           { path: '/checkout', element: <Checkout /> },
           { path: '/payment/:orderId', element: <PaymentPage /> },
           { path: '/payment/finish', element: <PaymentFinish /> },
+          { path: '/payment/unfinish', element: <PaymentFinish /> },
+          { path: '/payment/error', element: <PaymentFinish /> },
           { path: '/review/:orderId', element: <WriteReview /> },
           { path: '/register-merchant', element: <RegisterMerchant /> },
           { path: '/edit-profile', element: <EditProfile /> },

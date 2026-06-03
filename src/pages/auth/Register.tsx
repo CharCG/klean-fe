@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ChevronLeft, User } from 'lucide-react';
+import { ChevronLeft } from 'lucide-react';
 import { useToast } from '../../context/ToastContext';
 import Button from '../../components/common/Button';
 import * as api from '../../services/api';
@@ -58,9 +58,7 @@ export default function Register() {
 
       <div className="flex-1 flex flex-col justify-center px-6 py-12 overflow-y-auto">
         <div className="mb-8 text-center mt-8">
-          <div className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 bg-primary shadow-[0_4px_14px_0_rgba(var(--color-primary-rgb),0.39)]">
-            <User className="text-white" size={32} />
-          </div>
+          <img src="/logo.svg" alt="Klean" className="h-16 mx-auto mb-4" />
           <h1 className="text-2xl font-bold text-text tracking-tight">
             Create Account
           </h1>

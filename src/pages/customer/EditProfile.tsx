@@ -28,19 +28,24 @@ export default function EditProfile() {
     <div className="flex flex-col h-full overflow-y-auto bg-bg">
       <TopBar title="Edit Profile" showBack />
       <form onSubmit={handleSubmit} className="p-6 space-y-6">
-        <section className="rounded-2xl p-5 bg-card border border-stroke shadow-sm">
+        <section className="rounded-2xl p-5 bg-card border border-stroke">
           <h3 className="font-bold text-[15px] mb-4 pb-3 text-text border-b border-stroke">Personal Information</h3>
           <div className="space-y-4">
-            {[{n:'name',l:'Full Name',v:user?.name},{n:'email',l:'Email',v:user?.email,dis:true},{n:'phone',l:'Phone',v:''},{n:'address',l:'Address',v:''}].map(f=>(
+            {[
+              {n:'name',l:'Full Name',v:user?.name,ph:user?.name || 'Your full name'},
+              {n:'email',l:'Email',v:user?.email,dis:true,ph:user?.email || ''},
+              {n:'phone',l:'Phone',v:'',ph:user?.phone || 'Your phone number'},
+              {n:'address',l:'Address',v:'',ph:user?.address || 'Your delivery address'},
+            ].map(f=>(
               <div key={f.n}>
                 <label className="text-xs font-semibold mb-1.5 block text-text-secondary uppercase tracking-wide">{f.l}</label>
-                <input name={f.n} defaultValue={f.v||''} readOnly={f.dis} disabled={f.dis} required={!f.dis} className={`w-full rounded-2xl px-4 py-4 text-[15px] focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors border border-stroke ${f.dis ? 'bg-stroke text-text-tertiary cursor-not-allowed' : 'bg-bg text-text'}`} />
+                <input name={f.n} defaultValue={f.v||''} placeholder={f.ph} readOnly={f.dis} disabled={f.dis} required={!f.dis} className={`w-full rounded-2xl px-4 py-4 text-[15px] focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors border border-stroke ${f.dis ? 'bg-stroke text-text-tertiary cursor-not-allowed' : 'bg-bg text-text'}`} />
               </div>
             ))}
           </div>
         </section>
         
-        <section className="rounded-2xl p-5 bg-card border border-stroke shadow-sm">
+        <section className="rounded-2xl p-5 bg-card border border-stroke">
           <h3 className="font-bold text-[15px] mb-4 pb-3 text-text border-b border-stroke">Change Password</h3>
           <div className="space-y-4">
             {['oldPassword','newPassword','confirmPassword'].map(n=>(

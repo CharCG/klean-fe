@@ -31,12 +31,12 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     // Variant classes
     const variants = {
-      primary: "bg-primary text-white shadow-[0_4px_14px_0_rgba(var(--color-primary-rgb),0.39)] hover:shadow-[0_6px_20px_rgba(var(--color-primary-rgb),0.23)] hover:bg-primary-dark",
-      secondary: "bg-primary-light text-primary-dark border border-primary/20 hover:bg-primary/10",
-      danger: "bg-danger text-white shadow-[0_4px_14px_0_rgba(239,68,68,0.39)] hover:shadow-[0_6px_20px_rgba(239,68,68,0.23)] hover:bg-red-600",
-      success: "bg-success text-white shadow-[0_4px_14px_0_rgba(var(--color-success-rgb),0.3)] hover:bg-success-dark",
-      warning: "bg-warning text-white shadow-[0_4px_14px_0_rgba(var(--color-warning-rgb),0.3)] hover:bg-warning-dark",
-      outline: "bg-transparent text-text border-2 border-stroke hover:border-stroke-medium hover:bg-bg shadow-sm",
+      primary: "bg-primary text-white hover:bg-primary-dark",
+      secondary: "bg-primary-light text-primary-dark hover:bg-primary/10",
+      danger: "bg-danger text-white hover:bg-red-600",
+      success: "bg-success text-white hover:bg-success-dark",
+      warning: "bg-warning text-white hover:bg-warning-dark",
+      outline: "bg-transparent text-text border border-stroke hover:border-stroke-medium hover:bg-bg",
       ghost: "bg-transparent text-text hover:bg-bg"
     };
 

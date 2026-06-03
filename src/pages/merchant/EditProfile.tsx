@@ -28,20 +28,20 @@ export default function EditMerchantProfile() {
     <div className="flex flex-col h-full overflow-y-auto bg-bg">
       <TopBar title="Edit Business Profile" showBack />
       <form onSubmit={handleSubmit} className="p-6 space-y-6">
-        <section className="rounded-2xl p-5 bg-card border border-stroke shadow-sm">
+        <section className="rounded-2xl p-5 bg-card border border-stroke">
           <h3 className="font-bold text-[15px] mb-4 pb-3 text-text border-b border-stroke">Business Information</h3>
           <div className="space-y-4">
             <div><label className="text-xs font-semibold mb-1.5 block text-text-secondary uppercase tracking-wide">Owner Name</label><input defaultValue={user?.name} readOnly disabled className={disCls} /></div>
             <div><label className="text-xs font-semibold mb-1.5 block text-text-secondary uppercase tracking-wide">Business Name</label><input defaultValue={m?.name} readOnly disabled className={disCls} /></div>
-            <div><label className="text-xs font-semibold mb-1.5 block text-text-secondary uppercase tracking-wide">Business Phone</label><input name="businessPhone" defaultValue={m?.businessPhone} required className={inputCls} /></div>
+            <div><label className="text-xs font-semibold mb-1.5 block text-text-secondary uppercase tracking-wide">Business Phone</label><input name="businessPhone" defaultValue={m?.businessPhone} placeholder={m?.businessPhone || 'Business phone number'} required className={inputCls} /></div>
             <div><label className="text-xs font-semibold mb-1.5 block text-text-secondary uppercase tracking-wide">Business Email</label><input defaultValue={m?.businessEmail} readOnly disabled className={disCls} /></div>
-            <div><label className="text-xs font-semibold mb-1.5 block text-text-secondary uppercase tracking-wide">Address</label><textarea name="address" defaultValue={m?.address} required rows={2} className={inputCls + ' resize-none'} /></div>
-            <div><label className="text-xs font-semibold mb-1.5 block text-text-secondary uppercase tracking-wide">Description</label><textarea name="businessDescription" defaultValue={m?.businessDescription} required rows={2} className={inputCls + ' resize-none'} /></div>
+            <div><label className="text-xs font-semibold mb-1.5 block text-text-secondary uppercase tracking-wide">Address</label><textarea name="address" defaultValue={m?.address} placeholder={m?.address || 'Business address'} required rows={2} className={inputCls + ' resize-none'} /></div>
+            <div><label className="text-xs font-semibold mb-1.5 block text-text-secondary uppercase tracking-wide">Description</label><textarea name="businessDescription" defaultValue={m?.businessDescription} placeholder={m?.businessDescription || 'Business description'} required rows={2} className={inputCls + ' resize-none'} /></div>
           </div>
         </section>
-        <section className="rounded-2xl p-5 bg-card border border-stroke shadow-sm">
+        <section className="rounded-2xl p-5 bg-card border border-stroke">
           <h3 className="font-bold text-[15px] mb-4 pb-3 text-text border-b border-stroke">Hours</h3>
-          <div className="flex gap-4"><div className="flex-1"><label className="text-xs font-semibold mb-1.5 block text-text-secondary uppercase tracking-wide">Open</label><input name="openTime" type="time" defaultValue={m?.openTime} required className={inputCls} /></div><div className="flex-1"><label className="text-xs font-semibold mb-1.5 block text-text-secondary uppercase tracking-wide">Close</label><input name="closeTime" type="time" defaultValue={m?.closeTime} required className={inputCls} /></div></div>
+          <div className="flex gap-4"><div className="flex-1"><label className="text-xs font-semibold mb-1.5 block text-text-secondary uppercase tracking-wide">Open</label><input name="openTime" type="time" defaultValue={m?.openTime} placeholder={m?.openTime || ''} required className={inputCls} /></div><div className="flex-1"><label className="text-xs font-semibold mb-1.5 block text-text-secondary uppercase tracking-wide">Close</label><input name="closeTime" type="time" defaultValue={m?.closeTime} placeholder={m?.closeTime || ''} required className={inputCls} /></div></div>
         </section>
         <Button type="submit" isLoading={mut.isPending} variant="primary" fullWidth>
           Save Settings

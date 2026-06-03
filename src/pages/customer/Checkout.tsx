@@ -176,7 +176,7 @@ export default function Checkout() {
         <Button
           onClick={handlePlaceOrderClick}
           isLoading={mutation.isPending}
-          variant="secondary"
+          variant="primary"
           fullWidth
         >
           Place Order

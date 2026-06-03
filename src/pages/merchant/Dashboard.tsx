@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { DollarSign, ShoppingBag, Star } from 'lucide-react';
+import { DollarSign, ShoppingBag, Star, MessageSquare } from 'lucide-react';
 import * as api from '../../services/api';
 import TopBar from '../../components/common/TopBar';
 import MetricCard from '../../components/merchant/MetricCard';
@@ -20,7 +20,7 @@ export default function MerchantDashboard() {
               <MetricCard icon={<DollarSign size={16} />} value={formatCurrency(data.totalRevenue)} label="Total Revenue" />
               <MetricCard icon={<ShoppingBag size={16} />} value={data.completedOrders} label="Completed" />
               <MetricCard icon={<Star size={16} />} value={data.averageRating.toFixed(1)} label="Avg. Rating" />
-              <MetricCard icon={<Star size={16} />} value={data.totalReviews} label="Total Reviews" />
+              <MetricCard icon={<MessageSquare size={16} />} value={data.totalReviews} label="Total Reviews" />
             </div>
             <h3 className="font-semibold text-lg mb-4" style={{ color: 'var(--color-text)' }}>Recent Reviews</h3>
             <div className="flex flex-col gap-3">

@@ -34,7 +34,7 @@ export default function CustomerProfile() {
 
 
         <h3 className="font-bold text-text text-[15px] px-1 mb-3 mt-2 uppercase tracking-wide">Account</h3>
-        <div className="bg-card rounded-2xl overflow-hidden mb-6 shadow-sm border border-stroke">
+        <div className="bg-card rounded-2xl overflow-hidden mb-6 border border-stroke">
           <ProfileRow icon={User} label="Edit Profile" onClick={() => navigate('/edit-profile')} />
           {user?.role === 'MERCHANT' && (
             <ToggleRow
@@ -51,7 +51,7 @@ export default function CustomerProfile() {
         </div>
 
         <h3 className="font-bold text-text text-[15px] px-1 mb-3 uppercase tracking-wide">Preferences</h3>
-        <div className="bg-card rounded-2xl overflow-hidden mb-6 shadow-sm border border-stroke">
+        <div className="bg-card rounded-2xl overflow-hidden mb-6 border border-stroke">
           <ToggleRow icon={Moon} label="Appearance" isActive={theme === 'dark'} onToggle={toggleTheme} showBorder={false} />
         </div>
 

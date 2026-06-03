@@ -12,7 +12,7 @@ interface ActiveOrderCardProps {
 const ActiveOrderCard = memo(({ order, onClick }: ActiveOrderCardProps) => (
   <div
     onClick={onClick}
-    className="bg-card rounded-2xl p-5 mb-6 shadow-sm border border-stroke relative overflow-hidden cursor-pointer active:scale-[0.98] transition-transform"
+    className="bg-card rounded-2xl p-5 mb-6 border border-stroke relative overflow-hidden cursor-pointer active:scale-[0.98] transition-transform"
   >
     {/* <div className="absolute top-0 left-0 w-1.5 h-full bg-primary"></div> */}
     <div className="flex justify-between items-start mb-3">
@@ -31,7 +31,7 @@ const ActiveOrderCard = memo(({ order, onClick }: ActiveOrderCardProps) => (
         <Clock size={16} className="text-primary" />
         <span className="text-xs font-semibold text-text">Est. Completion</span>
       </div>
-      <span className="text-sm font-bold text-primary">{order.estimationTime || 'Calculating...'}</span>
+      <span className="text-sm font-bold text-primary">{order.estimationTime || 'Pending'}</span>
     </div>
   </div>
 ));
